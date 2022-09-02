@@ -16,13 +16,20 @@ const displaycategoryName = async () => {
     
     const categoriyMenu = document.getElementById('categories');
     categories.forEach(category => {
-        const {category_name} = category;
+        const {category_name, category_id} = category;
         
-        console.log(category)
+        // console.log(category)
         const li = document.createElement('li');
-        li.innerHTML = `<a href="">${category_name}</a>`;
+        li.innerHTML = `<a href="#" onclick="loadCategoryData('${category_id}')">${category_name}</a>`;
         categoriyMenu.appendChild(li)
     })
+}
+
+
+const loadCategoryData = categoryId => {
+   const url = ` https://openapi.programming-hero.com/api/news/category/${categoryId}`;
+   console.log(url)
+
 }
 
 displaycategoryName()
