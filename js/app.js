@@ -13,9 +13,15 @@ const loadNews = async () => {
 const displaycategoryName = async () => {
     const categories = await loadNews() 
     // console.log(categories)
-
+    
+    const categoriyMenu = document.getElementById('categories');
     categories.forEach(category => {
+        const {category_name} = category;
+        
         console.log(category)
+        const li = document.createElement('li');
+        li.innerHTML = `<a href="">${category_name}</a>`;
+        categoriyMenu.appendChild(li)
     })
 }
 
