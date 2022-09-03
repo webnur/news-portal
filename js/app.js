@@ -37,22 +37,30 @@ const displayCategoryData = posts => {
     // console.log(posts)
     const notFoundCategory = document.getElementById('not-found-category');
     const itemQuaintity = document.getElementById('item-quaintity');
+    const spinner = document.getElementById('spinner')
     if(posts.length === 0){
         
         notFoundCategory.classList.remove('hidden');
-        itemQuaintity.classList.add('hidden')
+        itemQuaintity.classList.add('hidden');
+        //spinner.classList.add('hidden');
+        
     }
     else{
         notFoundCategory.classList.add('hidden')
         itemQuaintity.classList.remove('hidden')
+       // spinner.classList.remove('hidden');
+       
     }
     const postContainer = document.getElementById('post-container');
     postContainer.innerHTML = ``;
+
     const postQuantity = document.getElementById('post-quantity');
     postQuantity.innerText = posts.length;
+
+   
     // console.log(posts.length)
     posts.forEach(post => {
-        // console.log(post)
+       
         
         const {author, details, image_url, thumbnail_url, title, total_view, _id} = post;
 
