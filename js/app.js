@@ -16,9 +16,8 @@ const displaycategoryName = async () => {
     
     const categoriyMenu = document.getElementById('categories');
     categories.forEach(category => {
+
         const {category_name, category_id} = category;
-        
-        // console.log(category)
         const li = document.createElement('li');
         li.innerHTML = `<a href="#" onclick="loadCategoryData('${category_id}')">${category_name}</a>`;
         categoriyMenu.appendChild(li)
@@ -54,7 +53,7 @@ const displayCategoryData = posts => {
           <div class="lg:flex items-center">
             <img src="${author.img}" class="rounded-full w-20" />
             <h4 class="ml-3">${author.name}</h4>
-            <h5 class="ml-5">view </h5>
+            <h5 class="ml-5">view ${total_view}</h5>
             <div class="rating ml-5">
                 <input type="radio" name="rating-1" class="mask mask-star" />
                 <input type="radio" name="rating-1" class="mask mask-star" checked />
@@ -77,4 +76,4 @@ const displayCategoryData = posts => {
     })
 }
 
-displaycategoryName()
+displaycategoryName('')
