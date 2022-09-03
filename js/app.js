@@ -39,7 +39,7 @@ const displayCategoryData = posts => {
     // console.log(posts)
     posts.forEach(post => {
         console.log(post)
-        const {author, details, image_url, thumbnail_url, title, total_view} = post;
+        const {author, details, image_url, thumbnail_url, title, total_view, category_id} = post;
         const postContainer = document.getElementById('post-container');
         // postContainer.innerHTML = ``
         const postDiv = document.createElement('div');
@@ -48,8 +48,8 @@ const displayCategoryData = posts => {
         postDiv.innerHTML = `
             <figure><img src="${thumbnail_url}" alt="Album"></figure>
             <div class="card-body">
-            <h2 class="card-title">${title}</h2>
-            <p>Click the button to listen on Spotiwhy app.</p>
+            <h2 class="card-title">${title} ${category_id}</h2>
+            <p>${details}</p>
             <div>
                 <!-- author picture  -->
                 <div class="md:flex items-center">
@@ -77,7 +77,9 @@ const displayCategoryData = posts => {
         
         
         `;
+        // postContainer.innerHTML = ``
         postContainer.appendChild(postDiv)
+        
     })
 }
 
