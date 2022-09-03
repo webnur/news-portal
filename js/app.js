@@ -76,14 +76,8 @@ const displayCategoryData = posts => {
           <div class="lg:flex items-center">
             <img src="${author.img}" class="rounded-full w-20" />
             <h4 class="ml-3">${author.name ? author.name : 'Not Found'}</h4>
-            <h5 class="ml-5">view ${total_view ? total_view : 'Not Found'}</h5>
-            <div class="rating ml-5">
-                <input type="radio" name="rating-1" class="mask mask-star" />
-                <input type="radio" name="rating-1" class="mask mask-star" checked />
-                <input type="radio" name="rating-1" class="mask mask-star" />
-                <input type="radio" name="rating-1" class="mask mask-star" />
-                <input type="radio" name="rating-1" class="mask mask-star" />
-              </div>
+            <h5 class="ml-5"><i class="fa-regular fa-eye"></i> ${total_view ? total_view : 'Not Found'}</h5>
+           
           </div>
           <div class="card-actions">
             <label for="my-modal-3" class="btn modal-button btn-primary" onclick="showPostDetails('${_id}')">View Post</label>
