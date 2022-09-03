@@ -27,7 +27,6 @@ const displaycategoryName = async () => {
 
 const loadCategoryData = categoryId => {
    const url = ` https://openapi.programming-hero.com/api/news/category/${categoryId}`;
-   console.log(url)
    fetch(url)
    .then(response => response.json())
    .then(data => displayCategoryData(data.data))
@@ -37,8 +36,8 @@ const loadCategoryData = categoryId => {
 const displayCategoryData = posts => {
     // console.log(posts)
     posts.forEach(post => {
-        console.log(post)
-        const {author, details, image_url, thumbnail_url, title, total_view, category_id} = post;
+        // console.log(post)
+        const {author, details, image_url, thumbnail_url, title, total_view, _id} = post;
         const postContainer = document.getElementById('post-container');
         // postContainer.innerHTML = ``
         const postDiv = document.createElement('div');
@@ -63,7 +62,7 @@ const displayCategoryData = posts => {
               </div>
           </div>
           <div class="card-actions">
-            <button class="btn btn-primary">view Post</button>
+            <button class="btn btn-primary" onclick="showPostDetails('${_id}')">view Post</button>
           </div>
         </div>
         
@@ -76,4 +75,14 @@ const displayCategoryData = posts => {
     })
 }
 
+
+
+// show post details 
+const showPostDetails = postId =>{
+    const url =` https://openapi.programming-hero.com/api/news/${postId}`
+    // console.log(url)
+    fetch(url)
+    .then(res => res.json())
+    .then(data => console.log(data.data[0]))
+}
 displaycategoryName('')
