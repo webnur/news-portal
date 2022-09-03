@@ -31,8 +31,54 @@ const loadCategoryData = categoryId => {
    console.log(url)
    fetch(url)
    .then(response => response.json())
-   .then(data => console.log(data.data))
+   .then(data => displayCategoryData(data.data))
 
+}
+
+const displayCategoryData = posts => {
+    // console.log(posts)
+    posts.forEach(post => {
+        console.log(post)
+        const {author, details, image_url, thumbnail_url, title, total_view} = post;
+        const postContainer = document.getElementById('post-container');
+        // postContainer.innerHTML = ``
+        const postDiv = document.createElement('div');
+        postDiv.classList.add('card', 'lg:card-side', 'bg-base-100', 'shadow-xl');
+
+        postDiv.innerHTML = `
+            <figure><img src="${thumbnail_url}" alt="Album"></figure>
+            <div class="card-body">
+            <h2 class="card-title">${title}</h2>
+            <p>Click the button to listen on Spotiwhy app.</p>
+            <div>
+                <!-- author picture  -->
+                <div class="md:flex items-center">
+                <img src="${author.img}" class="rounded-full w-24" />
+                <h5 class="ml-2">a${author.name}</h5>
+                <div class="ml-8">
+                    
+                    <h4 class="text-3xl"><i class="fa-regular fa-eye"></i>${total_view}</h4>
+                </div>
+                <div class="rating rating-lg ml-8">
+                    <input type="radio" name="rating-9" class="rating-hidden" />
+                    <input type="radio" name="rating-9" class="mask mask-star-2" />
+                    <input type="radio" name="rating-9" class="mask mask-star-2" checked />
+                    <input type="radio" name="rating-9" class="mask mask-star-2" />
+                    <input type="radio" name="rating-9" class="mask mask-star-2" />
+                    <input type="radio" name="rating-9" class="mask mask-star-2" />
+                </div>
+                </div>
+            </div>
+            <div class="card-actions justify-end">
+                <button class="btn btn-primary">Listen</button>
+            </div>
+            </div>
+        
+        
+        
+        `;
+        postContainer.appendChild(postDiv)
+    })
 }
 
 displaycategoryName()

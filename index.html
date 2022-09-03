@@ -8,6 +8,9 @@
       <!-- daisy ui and tailwind css -->
       <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
       <script src="https://cdn.tailwindcss.com"></script>
+
+      <!-- fontawesome icon link cdn  -->
+      <script src="https://kit.fontawesome.com/39e2162a22.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header class="w-11/12 mx-auto">
@@ -44,7 +47,7 @@
     </header>
     <main class="w-11/12 mx-auto">
       <!-- display category posts start -->
-      <section>
+      <section id="post-container">
         <div class="card lg:card-side bg-base-100 shadow-xl">
           <figure><img src="https://placeimg.com/400/400/arch" alt="Album"></figure>
           <div class="card-body">
@@ -52,9 +55,21 @@
             <p>Click the button to listen on Spotiwhy app.</p>
             <div>
               <!-- author picture  -->
-              <div class="w-24">
-                <img src="https://placeimg.com/192/192/people" class="rounded-full" />
-                <h5>author name</h5>
+              <div class="md:flex items-center">
+                <img src="https://placeimg.com/192/192/people" class="rounded-full w-24" />
+                <h5 class="ml-2">author name</h5>
+                <div class="ml-8">
+                  
+                  <h4 class="text-3xl"><i class="fa-regular fa-eye"></i>1.5 m</h4>
+                </div>
+                <div class="rating rating-lg ml-8">
+                  <input type="radio" name="rating-9" class="rating-hidden" />
+                  <input type="radio" name="rating-9" class="mask mask-star-2" />
+                  <input type="radio" name="rating-9" class="mask mask-star-2" checked />
+                  <input type="radio" name="rating-9" class="mask mask-star-2" />
+                  <input type="radio" name="rating-9" class="mask mask-star-2" />
+                  <input type="radio" name="rating-9" class="mask mask-star-2" />
+                </div>
               </div>
             </div>
             <div class="card-actions justify-end">
