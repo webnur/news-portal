@@ -60,7 +60,7 @@ const displayCategoryData = posts => {
         <figure><img src="${thumbnail_url}" alt="Album"></figure>
         <div class="card-body">
           <h2 class="card-title">${title}</h2>
-          <p>${details.slice(0, 200)}</p>
+          <p>${details.slice(0, 200) + ' ...'}</p>
           <!-- author information div  -->
           <div class="lg:flex items-center">
             <img src="${author.img}" class="rounded-full w-20" />
