@@ -76,7 +76,7 @@ const displayCategoryData = posts => {
           <div class="lg:flex items-center">
             <img src="${author.img}" class="rounded-full w-20" />
             <h4 class="ml-3">${author.name ? author.name : 'Not Found'}</h4>
-            <h5 class="ml-5">view ${total_view ? total_view : 'Not Found'}</h5>
+            <h5 class="ml-5"><i class="fa-regular fa-eye"></i> ${total_view ? total_view : 'Not Found'}</h5>
 
           </div>
           <div class="card-actions">
