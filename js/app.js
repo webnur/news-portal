@@ -1,27 +1,40 @@
 
 const loadNews = async () => {
-    const url =`https://openapi.programming-hero.com/api/news/categories`;
-    const response = await fetch(url);
-    const data = await response.json()
+    try {
+        const url =`https://openapi.programming-hero.com/api/news/categories`;
+        const response = await fetch(url);
+        const data = await response.json()
+    
+        // console.log(data.data.news_category)
+        return data.data.news_category;
+    }
 
-    // console.log(data.data.news_category)
-    return data.data.news_category;
-
+catch(error){
+    console.log(error)
+}
 
 }
 
 const displaycategoryName = async () => {
-    const categories = await loadNews() 
-    // console.log(categories)
-    
-    const categoriyMenu = document.getElementById('categories');
-    categories.forEach(category => {
 
-        const {category_name, category_id} = category;
-        const li = document.createElement('li');
-        li.innerHTML = `<a href="#" onclick="loadCategoryData('${category_id}')">${category_name}</a>`;
-        categoriyMenu.appendChild(li)
-    })
+
+    try{
+        const categories = await loadNews() 
+        // console.log(categories)
+        
+        const categoriyMenu = document.getElementById('categories');
+        categories.forEach(category => {
+    
+            const {category_name, category_id} = category;
+            const li = document.createElement('li');
+            li.innerHTML = `<a href="#" onclick="loadCategoryData('${category_id}')">${category_name}</a>`;
+            categoriyMenu.appendChild(li)
+        })
+    }
+    catch(error){
+        console.log(error)
+    }
+
 }
 
 
@@ -30,6 +43,7 @@ const loadCategoryData = categoryId => {
    fetch(url)
    .then(response => response.json())
    .then(data => displayCategoryData(data.data))
+   .catch(error => console.log(error))
 
 }
 
