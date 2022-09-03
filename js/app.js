@@ -35,11 +35,12 @@ const loadCategoryData = categoryId => {
 
 const displayCategoryData = posts => {
     // console.log(posts)
+    const postContainer = document.getElementById('post-container');
+    postContainer.innerHTML = ``
     posts.forEach(post => {
         // console.log(post)
         const {author, details, image_url, thumbnail_url, title, total_view, _id} = post;
-        const postContainer = document.getElementById('post-container');
-        // postContainer.innerHTML = ``
+
         const postDiv = document.createElement('div');
         postDiv.classList.add('card', 'lg:card-side', 'bg-base-100', 'shadow-xl');
 
