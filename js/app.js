@@ -62,7 +62,7 @@ const displayCategoryData = posts => {
               </div>
           </div>
           <div class="card-actions">
-            <button class="btn btn-primary" onclick="showPostDetails('${_id}')">view Post</button>
+            <label for="my-modal-3" class="btn modal-button btn-primary" onclick="showPostDetails('${_id}')">View Post</label>
           </div>
         </div>
         
@@ -83,6 +83,23 @@ const showPostDetails = postId =>{
     // console.log(url)
     fetch(url)
     .then(res => res.json())
-    .then(data => console.log(data.data[0]))
+    .then(data => displayshowPsotDetail(data.data[0]))
+}
+
+// display show post details
+const displayshowPsotDetail = postData => {
+    console.log(postData)
+    
+    const {thumbnail_url, details, title} = postData;
+    
+    const modalBody = document.getElementById('modal-body');
+    modalBody.innerHTML = `
+    <img src="${thumbnail_url}" class="w-full" />
+    <h4 class="text-1xl font-bold my-4">${title}</h4>
+    <p>${details}</p>
+    
+    `;
+
+    
 }
 displaycategoryName('')
