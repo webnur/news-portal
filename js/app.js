@@ -76,8 +76,8 @@ const displayCategoryData = posts => {
           <div class="lg:flex items-center">
             <img src="${author.img}" class="rounded-full w-20" />
             <h4 class="ml-3">${author.name ? author.name : 'Not Found'}</h4>
-            <h5 class="ml-5"><i class="fa-regular fa-eye"></i> ${total_view ? total_view : 'Not Found'}</h5>
-           
+            <h5 class="ml-5">view ${total_view ? total_view : 'Not Found'}</h5>
+
           </div>
           <div class="card-actions">
             <label for="my-modal-3" class="btn modal-button btn-primary" onclick="showPostDetails('${_id}')">View Post</label>
@@ -108,12 +108,15 @@ const showPostDetails = postId =>{
 const displayshowPsotDetail = postData => {
     console.log(postData)
     
-    const {thumbnail_url, details, title} = postData;
+    const {thumbnail_url, details, title, author, rating, total_view} = postData;
     
     const modalBody = document.getElementById('modal-body');
     modalBody.innerHTML = `
-    <img src="${thumbnail_url}" class="w-full" />
+    <img src="${thumbnail_url}" class="w-80" />
     <h4 class="text-1xl font-bold my-4">${title}</h4>
+    <p class="font-bold">date: ${author.published_date}</p>
+    <h6 class="font-bold">Author: ${author.name}</h6>
+    <p class="font-bold mb-3"><span>Rating: ${rating.number},</span><span>Total View: ${total_view}</span></p>
     <p>${details}</p>
     
     `;
