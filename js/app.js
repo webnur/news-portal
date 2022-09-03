@@ -36,12 +36,15 @@ const loadCategoryData = categoryId => {
 const displayCategoryData = posts => {
     // console.log(posts)
     const notFoundCategory = document.getElementById('not-found-category');
+    const itemQuaintity = document.getElementById('item-quaintity');
     if(posts.length === 0){
         
-        notFoundCategory.classList.remove('hidden')
+        notFoundCategory.classList.remove('hidden');
+        itemQuaintity.classList.add('hidden')
     }
     else{
         notFoundCategory.classList.add('hidden')
+        itemQuaintity.classList.remove('hidden')
     }
     const postContainer = document.getElementById('post-container');
     postContainer.innerHTML = ``;
