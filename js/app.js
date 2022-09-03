@@ -111,8 +111,6 @@ const displayCategoryData = posts => {
     });
 }
 
-
-
 // show post details 
 const showPostDetails = postId =>{
     const url =` https://openapi.programming-hero.com/api/news/${postId}`
