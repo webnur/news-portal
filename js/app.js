@@ -44,9 +44,13 @@ const displayCategoryData = posts => {
         notFoundCategory.classList.add('hidden')
     }
     const postContainer = document.getElementById('post-container');
-    postContainer.innerHTML = ``
+    postContainer.innerHTML = ``;
+    const postQuantity = document.getElementById('post-quantity');
+    postQuantity.innerText = posts.length;
+    // console.log(posts.length)
     posts.forEach(post => {
         // console.log(post)
+        
         const {author, details, image_url, thumbnail_url, title, total_view, _id} = post;
 
         const postDiv = document.createElement('div');
@@ -80,8 +84,8 @@ const displayCategoryData = posts => {
         `;
         // postContainer.innerHTML = ``
         postContainer.appendChild(postDiv)
-        
-    })
+       
+    });
 }
 
 
