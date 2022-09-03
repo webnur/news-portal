@@ -35,6 +35,14 @@ const loadCategoryData = categoryId => {
 
 const displayCategoryData = posts => {
     // console.log(posts)
+    const notFoundCategory = document.getElementById('not-found-category');
+    if(posts.length === 0){
+        
+        notFoundCategory.classList.remove('hidden')
+    }
+    else{
+        notFoundCategory.classList.add('hidden')
+    }
     const postContainer = document.getElementById('post-container');
     postContainer.innerHTML = ``
     posts.forEach(post => {
@@ -52,8 +60,8 @@ const displayCategoryData = posts => {
           <!-- author information div  -->
           <div class="lg:flex items-center">
             <img src="${author.img}" class="rounded-full w-20" />
-            <h4 class="ml-3">${author.name}</h4>
-            <h5 class="ml-5">view ${total_view}</h5>
+            <h4 class="ml-3">${author.name ? author.name : 'Not Found'}</h4>
+            <h5 class="ml-5">view ${total_view ? total_view : 'Not Found'}</h5>
             <div class="rating ml-5">
                 <input type="radio" name="rating-1" class="mask mask-star" />
                 <input type="radio" name="rating-1" class="mask mask-star" checked />
