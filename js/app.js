@@ -39,6 +39,8 @@ const displaycategoryName = async () => {
 
 
 const loadCategoryData = categoryId => {
+    // spinner add
+    toggleSpinner(true)
    const url = ` https://openapi.programming-hero.com/api/news/category/${categoryId}`;
    fetch(url)
    .then(response => response.json())
@@ -48,6 +50,8 @@ const loadCategoryData = categoryId => {
 }
 
 const displayCategoryData = posts => {
+    // spinner remove
+    toggleSpinner(false)
     // console.log(posts)
     const notFoundCategory = document.getElementById('not-found-category');
     const itemQuaintity = document.getElementById('item-quaintity');
@@ -136,5 +140,16 @@ const displayshowPsotDetail = postData => {
     `;
 
     
+}
+
+// spinner function
+const toggleSpinner = isLoading => {
+    const loadSpinner = document.getElementById('spinner');
+    if(isLoading){
+        loadSpinner.classList.remove('hidden')
+    }
+    else{
+        loadSpinner.classList.add('hidden')
+    }
 }
 displaycategoryName('')
