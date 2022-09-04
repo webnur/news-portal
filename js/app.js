@@ -29,6 +29,7 @@ const displaycategoryName = async () => {
             const li = document.createElement('li');
             li.innerHTML = `<a href="#" onclick="loadCategoryData('${category_id}')">${category_name}</a>`;
             categoriyMenu.appendChild(li)
+           
         })
     }
     catch(error){
@@ -46,6 +47,7 @@ const loadCategoryData = categoryId => {
    .then(response => response.json())
    .then(data => displayCategoryData(data.data))
    .catch(error => console.log(error))
+
 
 }
 
@@ -77,7 +79,9 @@ const displayCategoryData = posts => {
 
    
     // console.log(posts.length)
-    posts.forEach(post => {
+    // update sort data
+    const sortedData = posts.sort((a, b) => b.total_view - a.total_view);
+    sortedData.forEach(post => {
        
         
         const {author, details, image_url, thumbnail_url, title, total_view, _id} = post;
