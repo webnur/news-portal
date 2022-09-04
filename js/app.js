@@ -132,10 +132,10 @@ const displayshowPsotDetail = postData => {
     <h4 class="text-1xl font-bold my-4">${title}</h4>
     <div class="flex items-center">
         <img src="${author.img}" class="rounded-full w-20" />
-        <h6 class="font-bold ml-3">Author: ${author.name}</h6>   
+        <h6 class="font-bold ml-3">Author: ${author.name ? author.name : 'not found'}</h6>   
     </div>
-    <p class="font-bold">date: ${author.published_date}</p> 
-    <p class="font-bold mb-3"><span>Rating: ${rating.number},</span><span>Total View: ${total_view}</span></p>
+    <p class="font-bold">date: ${author.published_date ? author.published_date : 'Not Found Date'}</p> 
+    <p class="font-bold mb-3"><span>Rating: ${rating.number ? rating.number : 'No rating here'},</span><span>Total View: ${total_view ? total_view : 'Not Found'}</span></p>
     <p>${details}</p>
     `;
 
